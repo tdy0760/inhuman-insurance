@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on darwin)" generated="20230613 20:01:32.736" rpa="true" schemaversion="3">
+<suite id="s1" name="Producer" source="/Users/tomekdyl/Documents/robocorp/inhuman-insurance/producer.robot">
+<test id="s1-t1" name="Produce traffic data work items" line="23">
+<kw name="Download traffic data">
+<kw name="Download" library="RPA.HTTP">
+<arg>https://github.com/robocorp/inhuman-insurance-inc/raw/main/RS_198.json</arg>
+<arg>${TRAFFIC_FILE_PATH}</arg>
+<arg>overwrite=True</arg>
+<doc>An alias for the ``HTTP Get`` keyword.</doc>
+<msg timestamp="20230613 20:01:36.935" level="INFO">Creating a new HTTP session</msg>
+<msg timestamp="20230613 20:01:36.937" level="INFO">Creating Session using : alias=rpasession_alias.httpsgithub.com, url=https://github.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20230613 20:01:36.930" endtime="20230613 20:01:37.774"/>
+</kw>
+<status status="PASS" starttime="20230613 20:01:36.926" endtime="20230613 20:01:37.775"/>
+</kw>
+<kw name="Write data to csv">
+<kw name="Load data to table">
+<var>${table}</var>
+<kw name="Load JSON from file" library="RPA.JSON">
+<var>${json}</var>
+<arg>${TRAFFIC_FILE_PATH}</arg>
+<doc>Load JSON data from a file, and return it as JSON serializable object.
+Depending on the input file the object can be either a dictionary,
+a list, or a scalar value.</doc>
+<msg timestamp="20230613 20:01:37.782" level="INFO">Loading JSON from file: /Users/tomekdyl/Documents/robocorp/inhuman-insurance/traffic.json</msg>
+<msg timestamp="20230613 20:01:37.960" level="INFO">${json} = {'@odata.context': 'https://ghoapi.azureedge.net/api/$metadata#RS_198', 'value': [{'Id': 25257658, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'AFG', 'TimeDimType': 'YEAR', '...</msg>
+<status status="PASS" starttime="20230613 20:01:37.780" endtime="20230613 20:01:37.962"/>
+</kw>
+<kw name="Create Table" library="RPA.Tables">
+<var>${table}</var>
+<arg>${json}[value]</arg>
+<doc>Create Table object from data.</doc>
+<msg timestamp="20230613 20:01:39.265" level="INFO">Created table: Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value', 'NumericValue', 'Low', 'High', 'Comments', 'Date', 'TimeDimensionValue', 'TimeDimensionBegin', 'TimeDimensionEnd'], rows=11640)</msg>
+<msg timestamp="20230613 20:01:39.271" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
+<status status="PASS" starttime="20230613 20:01:37.963" endtime="20230613 20:01:39.272"/>
+</kw>
+<return>
+<value>${table}</value>
+<status status="PASS" starttime="20230613 20:01:39.274" endtime="20230613 20:01:39.276"/>
+</return>
+<msg timestamp="20230613 20:01:39.278" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
+<status status="PASS" starttime="20230613 20:01:37.778" endtime="20230613 20:01:39.279"/>
+</kw>
+<kw name="Write table to CSV" library="RPA.Tables">
+<arg>${table}</arg>
+<arg>${TRAFFIC_FILE_PATH_CSV}</arg>
+<doc>Write a table as a CSV file.</doc>
+<status status="PASS" starttime="20230613 20:01:39.280" endtime="20230613 20:01:44.082"/>
+</kw>
+<status status="PASS" starttime="20230613 20:01:37.776" endtime="20230613 20:01:44.083"/>
+</kw>
+<kw name="Load data to table">
+<var>${table}</var>
+<kw name="Load JSON from file" library="RPA.JSON">
+<var>${json}</var>
+<arg>${TRAFFIC_FILE_PATH}</arg>
+<doc>Load JSON data from a file, and return it as JSON serializable object.
+Depending on the input file the object can be either a dictionary,
+a list, or a scalar value.</doc>
+<msg timestamp="20230613 20:01:44.088" level="INFO">Loading JSON from file: /Users/tomekdyl/Documents/robocorp/inhuman-insurance/traffic.json</msg>
+<msg timestamp="20230613 20:01:44.285" level="INFO">${json} = {'@odata.context': 'https://ghoapi.azureedge.net/api/$metadata#RS_198', 'value': [{'Id': 25257658, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'AFG', 'TimeDimType': 'YEAR', '...</msg>
+<status status="PASS" starttime="20230613 20:01:44.087" endtime="20230613 20:01:44.285"/>
+</kw>
+<kw name="Create Table" library="RPA.Tables">
+<var>${table}</var>
+<arg>${json}[value]</arg>
+<doc>Create Table object from data.</doc>
+<msg timestamp="20230613 20:01:45.582" level="INFO">Created table: Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value', 'NumericValue', 'Low', 'High', 'Comments', 'Date', 'TimeDimensionValue', 'TimeDimensionBegin', 'TimeDimensionEnd'], rows=11640)</msg>
+<msg timestamp="20230613 20:01:45.587" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
+<status status="PASS" starttime="20230613 20:01:44.286" endtime="20230613 20:01:45.588"/>
+</kw>
+<return>
+<value>${table}</value>
+<status status="PASS" starttime="20230613 20:01:45.589" endtime="20230613 20:01:45.591"/>
+</return>
+<msg timestamp="20230613 20:01:45.597" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
+<status status="PASS" starttime="20230613 20:01:44.085" endtime="20230613 20:01:45.598"/>
+</kw>
+<kw name="Filter and sort traffic data">
+<var>${filtered_data}</var>
+<arg>${table}</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${max_rate}</var>
+<arg>${5.0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230613 20:01:45.617" level="INFO">${max_rate} = 5.0</msg>
+<status status="PASS" starttime="20230613 20:01:45.608" endtime="20230613 20:01:45.618"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${rate_key}</var>
+<arg>NumericValue</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230613 20:01:45.620" level="INFO">${rate_key} = NumericValue</msg>
+<status status="PASS" starttime="20230613 20:01:45.619" endtime="20230613 20:01:45.621"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${gender_key}</var>
+<arg>Dim1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230613 20:01:45.630" level="INFO">${gender_key} = Dim1</msg>
+<status status="PASS" starttime="20230613 20:01:45.622" endtime="20230613 20:01:45.631"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${both_genders}</var>
+<arg>BTSX</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230613 20:01:45.637" level="INFO">${both_genders} = BTSX</msg>
+<status status="PASS" starttime="20230613 20:01:45.635" endtime="20230613 20:01:45.638"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${year_key}</var>
+<arg>TimeDim</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230613 20:01:45.647" level="INFO">${year_key} = TimeDim</msg>
+<status status="PASS" starttime="20230613 20:01:45.645" endtime="20230613 20:01:45.647"/>
+</kw>
+<kw name="Filter Table By Column" library="RPA.Tables">
+<arg>${table}</arg>
+<arg>${rate_key}</arg>
+<arg>&lt;</arg>
+<arg>${max_rate}</arg>
+<doc>Remove all rows where column values don't match the
+given condition.</doc>
+<msg timestamp="20230613 20:01:45.879" level="INFO">Filtered -10339 rows</msg>
+<status status="PASS" starttime="20230613 20:01:45.650" endtime="20230613 20:01:45.880"/>
+</kw>
+<kw name="Filter Table By Column" library="RPA.Tables">
+<arg>${table}</arg>
+<arg>${gender_key}</arg>
+<arg>==</arg>
+<arg>${both_genders}</arg>
+<doc>Remove all rows where column values don't match the
+given condition.</doc>
+<msg timestamp="20230613 20:01:45.914" level="INFO">Filtered -1056 rows</msg>
+<status status="PASS" starttime="20230613 20:01:45.881" endtime="20230613 20:01:45.914"/>
+</kw>
+<kw name="Filter Table By Column" library="RPA.Tables">
+<arg>${table}</arg>
+<arg>${year_key}</arg>
+<arg>==</arg>
+<arg>False</arg>
+<doc>Remove all rows where column values don't match the
+given condition.</doc>
+<msg timestamp="20230613 20:01:45.927" level="INFO">Filtered -245 rows</msg>
+<status status="PASS" starttime="20230613 20:01:45.915" endtime="20230613 20:01:45.931"/>
+</kw>
+<return>
+<value>${table}</value>
+<status status="PASS" starttime="20230613 20:01:45.931" endtime="20230613 20:01:45.932"/>
+</return>
+<msg timestamp="20230613 20:01:45.935" level="INFO">${filtered_data} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
+<status status="PASS" starttime="20230613 20:01:45.604" endtime="20230613 20:01:45.937"/>
+</kw>
+<status status="PASS" starttime="20230613 20:01:36.919" endtime="20230613 20:01:45.998"/>
+</test>
+<doc>Inhuman Insurance Robot Inc.
+Producer traffic data work item</doc>
+<status status="PASS" starttime="20230613 20:01:32.764" endtime="20230613 20:01:46.035"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Producer">Producer</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230613 20:01:36.917" level="WARN">No input work items file found: None</msg>
+</errors>
+</robot>
