@@ -4,11 +4,12 @@ Documentation       Inhuman Insurance Robot Inc.
 
 Library             RPA.HTTP
 Library             RPA.Desktop
-#Library             RPA.JSON
+# Library    RPA.JSON
 Library             RPA.Tables
 Library             Collections
-#Library             RPA.Robocorp.WorkItems
+# Library    RPA.Robocorp.WorkItems
 Resource            shared.robot
+
 
 *** Variables ***
 ${TRAFFIC_FILE_PATH}=           ${OUTPUT_DIR}${/}traffic.json
@@ -25,6 +26,7 @@ Produce traffic data work items
     Write data to csv
     ${table}=    Load data to table
     ${filtered_data}=    Filter and sort traffic data    ${table}
+    ${filtered_data}=    Get latest data by country    ${filtered_data}
 
 
 *** Keywords ***
