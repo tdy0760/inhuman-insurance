@@ -50,10 +50,7 @@ Write data to csv
 Filter and sort traffic data
     [Arguments]    ${table}
     ${max_rate}=    Set Variable    ${5.0}
-    ${rate_key}=    Set Variable    NumericValue
-    ${gender_key}=    Set Variable    Dim1
     ${both_genders}=    Set Variable    BTSX
-    ${year_key}=    Set Variable    TimeDim
 
     Filter Table By Column    ${table}    ${rate_key}    <    ${max_rate}
     Filter Table By Column    ${table}    ${gender_key}    ==    ${both_genders}
