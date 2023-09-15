@@ -30,6 +30,7 @@ Produce traffic data work items
     ${payloads}=    Create work item payloads    ${filtered_data}
     Save work item payloads    ${payloads}
 
+
 *** Keywords ***
 Download traffic data
     Download
@@ -52,9 +53,9 @@ Filter and sort traffic data
     ${max_rate}=    Set Variable    ${5.0}
     ${both_genders}=    Set Variable    BTSX
 
-    Filter Table By Column    ${table}    ${rate_key}    <    ${max_rate}
-    Filter Table By Column    ${table}    ${gender_key}    ==    ${both_genders}
-    Filter Table By Column    ${table}    ${year_key}    ==    False
+    Filter Table By Column    ${table}    ${RATE_KEY}    <    ${max_rate}
+    Filter Table By Column    ${table}    ${GENDER_KEY}    ==    ${both_genders}
+    Sort Table By Column    ${table}    ${YEAR_KEY}    False
 
     RETURN    ${table}
 
