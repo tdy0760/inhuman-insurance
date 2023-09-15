@@ -28,7 +28,7 @@ Produce traffic data work items
     ${filtered_data}=    Filter and sort traffic data    ${table}
     ${filtered_data}=    Get latest data by country    ${filtered_data}
     ${payloads}=    Create work item payloads    ${filtered_data}
-
+    Save work item payloads    ${payloads}
 
 *** Keywords ***
 Download traffic data

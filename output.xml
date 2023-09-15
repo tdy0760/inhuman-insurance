@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.9.13 on darwin)" generated="20230613 20:01:32.736" rpa="true" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.9.13 on darwin)" generated="20230915 12:42:29.632" rpa="true" schemaversion="3">
 <suite id="s1" name="Producer" source="/Users/tomekdyl/Documents/robocorp/inhuman-insurance/producer.robot">
-<test id="s1-t1" name="Produce traffic data work items" line="23">
+<test id="s1-t1" name="Produce traffic data work items" line="24">
 <kw name="Download traffic data">
 <kw name="Download" library="RPA.HTTP">
 <arg>https://github.com/robocorp/inhuman-insurance-inc/raw/main/RS_198.json</arg>
 <arg>${TRAFFIC_FILE_PATH}</arg>
 <arg>overwrite=True</arg>
 <doc>An alias for the ``HTTP Get`` keyword.</doc>
-<msg timestamp="20230613 20:01:36.935" level="INFO">Creating a new HTTP session</msg>
-<msg timestamp="20230613 20:01:36.937" level="INFO">Creating Session using : alias=rpasession_alias.httpsgithub.com, url=https://github.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
-<status status="PASS" starttime="20230613 20:01:36.930" endtime="20230613 20:01:37.774"/>
+<msg timestamp="20230915 12:42:33.650" level="INFO">Creating a new HTTP session</msg>
+<msg timestamp="20230915 12:42:33.652" level="INFO">Creating Session using : alias=rpasession_alias.httpsgithub.com, url=https://github.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20230915 12:42:33.650" endtime="20230915 12:42:35.325"/>
 </kw>
-<status status="PASS" starttime="20230613 20:01:36.926" endtime="20230613 20:01:37.775"/>
+<status status="PASS" starttime="20230915 12:42:33.649" endtime="20230915 12:42:35.326"/>
 </kw>
 <kw name="Write data to csv">
 <kw name="Load data to table">
@@ -23,32 +23,32 @@
 <doc>Load JSON data from a file, and return it as JSON serializable object.
 Depending on the input file the object can be either a dictionary,
 a list, or a scalar value.</doc>
-<msg timestamp="20230613 20:01:37.782" level="INFO">Loading JSON from file: /Users/tomekdyl/Documents/robocorp/inhuman-insurance/traffic.json</msg>
-<msg timestamp="20230613 20:01:37.960" level="INFO">${json} = {'@odata.context': 'https://ghoapi.azureedge.net/api/$metadata#RS_198', 'value': [{'Id': 25257658, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'AFG', 'TimeDimType': 'YEAR', '...</msg>
-<status status="PASS" starttime="20230613 20:01:37.780" endtime="20230613 20:01:37.962"/>
+<msg timestamp="20230915 12:42:35.328" level="INFO">Loading JSON from file: /Users/tomekdyl/Documents/robocorp/inhuman-insurance/traffic.json</msg>
+<msg timestamp="20230915 12:42:35.475" level="INFO">${json} = {'@odata.context': 'https://ghoapi.azureedge.net/api/$metadata#RS_198', 'value': [{'Id': 25257658, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'AFG', 'TimeDimType': 'YEAR', '...</msg>
+<status status="PASS" starttime="20230915 12:42:35.328" endtime="20230915 12:42:35.475"/>
 </kw>
 <kw name="Create Table" library="RPA.Tables">
 <var>${table}</var>
 <arg>${json}[value]</arg>
 <doc>Create Table object from data.</doc>
-<msg timestamp="20230613 20:01:39.265" level="INFO">Created table: Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value', 'NumericValue', 'Low', 'High', 'Comments', 'Date', 'TimeDimensionValue', 'TimeDimensionBegin', 'TimeDimensionEnd'], rows=11640)</msg>
-<msg timestamp="20230613 20:01:39.271" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
-<status status="PASS" starttime="20230613 20:01:37.963" endtime="20230613 20:01:39.272"/>
+<msg timestamp="20230915 12:42:35.660" level="INFO">Created table: Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value', 'NumericValue', 'Low', 'High', 'Comments', 'Date', 'TimeDimensionValue', 'TimeDimensionBegin', 'TimeDimensionEnd'], rows=11640)</msg>
+<msg timestamp="20230915 12:42:35.662" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
+<status status="PASS" starttime="20230915 12:42:35.475" endtime="20230915 12:42:35.662"/>
 </kw>
 <return>
 <value>${table}</value>
-<status status="PASS" starttime="20230613 20:01:39.274" endtime="20230613 20:01:39.276"/>
+<status status="PASS" starttime="20230915 12:42:35.662" endtime="20230915 12:42:35.663"/>
 </return>
-<msg timestamp="20230613 20:01:39.278" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
-<status status="PASS" starttime="20230613 20:01:37.778" endtime="20230613 20:01:39.279"/>
+<msg timestamp="20230915 12:42:35.663" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
+<status status="PASS" starttime="20230915 12:42:35.327" endtime="20230915 12:42:35.663"/>
 </kw>
 <kw name="Write table to CSV" library="RPA.Tables">
 <arg>${table}</arg>
 <arg>${TRAFFIC_FILE_PATH_CSV}</arg>
 <doc>Write a table as a CSV file.</doc>
-<status status="PASS" starttime="20230613 20:01:39.280" endtime="20230613 20:01:44.082"/>
+<status status="PASS" starttime="20230915 12:42:35.663" endtime="20230915 12:42:36.114"/>
 </kw>
-<status status="PASS" starttime="20230613 20:01:37.776" endtime="20230613 20:01:44.083"/>
+<status status="PASS" starttime="20230915 12:42:35.326" endtime="20230915 12:42:36.114"/>
 </kw>
 <kw name="Load data to table">
 <var>${table}</var>
@@ -58,24 +58,24 @@ a list, or a scalar value.</doc>
 <doc>Load JSON data from a file, and return it as JSON serializable object.
 Depending on the input file the object can be either a dictionary,
 a list, or a scalar value.</doc>
-<msg timestamp="20230613 20:01:44.088" level="INFO">Loading JSON from file: /Users/tomekdyl/Documents/robocorp/inhuman-insurance/traffic.json</msg>
-<msg timestamp="20230613 20:01:44.285" level="INFO">${json} = {'@odata.context': 'https://ghoapi.azureedge.net/api/$metadata#RS_198', 'value': [{'Id': 25257658, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'AFG', 'TimeDimType': 'YEAR', '...</msg>
-<status status="PASS" starttime="20230613 20:01:44.087" endtime="20230613 20:01:44.285"/>
+<msg timestamp="20230915 12:42:36.116" level="INFO">Loading JSON from file: /Users/tomekdyl/Documents/robocorp/inhuman-insurance/traffic.json</msg>
+<msg timestamp="20230915 12:42:36.270" level="INFO">${json} = {'@odata.context': 'https://ghoapi.azureedge.net/api/$metadata#RS_198', 'value': [{'Id': 25257658, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'AFG', 'TimeDimType': 'YEAR', '...</msg>
+<status status="PASS" starttime="20230915 12:42:36.115" endtime="20230915 12:42:36.270"/>
 </kw>
 <kw name="Create Table" library="RPA.Tables">
 <var>${table}</var>
 <arg>${json}[value]</arg>
 <doc>Create Table object from data.</doc>
-<msg timestamp="20230613 20:01:45.582" level="INFO">Created table: Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value', 'NumericValue', 'Low', 'High', 'Comments', 'Date', 'TimeDimensionValue', 'TimeDimensionBegin', 'TimeDimensionEnd'], rows=11640)</msg>
-<msg timestamp="20230613 20:01:45.587" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
-<status status="PASS" starttime="20230613 20:01:44.286" endtime="20230613 20:01:45.588"/>
+<msg timestamp="20230915 12:42:36.456" level="INFO">Created table: Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value', 'NumericValue', 'Low', 'High', 'Comments', 'Date', 'TimeDimensionValue', 'TimeDimensionBegin', 'TimeDimensionEnd'], rows=11640)</msg>
+<msg timestamp="20230915 12:42:36.458" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
+<status status="PASS" starttime="20230915 12:42:36.271" endtime="20230915 12:42:36.458"/>
 </kw>
 <return>
 <value>${table}</value>
-<status status="PASS" starttime="20230613 20:01:45.589" endtime="20230613 20:01:45.591"/>
+<status status="PASS" starttime="20230915 12:42:36.458" endtime="20230915 12:42:36.458"/>
 </return>
-<msg timestamp="20230613 20:01:45.597" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
-<status status="PASS" starttime="20230613 20:01:44.085" endtime="20230613 20:01:45.598"/>
+<msg timestamp="20230915 12:42:36.459" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
+<status status="PASS" starttime="20230915 12:42:36.115" endtime="20230915 12:42:36.459"/>
 </kw>
 <kw name="Filter and sort traffic data">
 <var>${filtered_data}</var>
@@ -84,36 +84,15 @@ a list, or a scalar value.</doc>
 <var>${max_rate}</var>
 <arg>${5.0}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230613 20:01:45.617" level="INFO">${max_rate} = 5.0</msg>
-<status status="PASS" starttime="20230613 20:01:45.608" endtime="20230613 20:01:45.618"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${rate_key}</var>
-<arg>NumericValue</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230613 20:01:45.620" level="INFO">${rate_key} = NumericValue</msg>
-<status status="PASS" starttime="20230613 20:01:45.619" endtime="20230613 20:01:45.621"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${gender_key}</var>
-<arg>Dim1</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230613 20:01:45.630" level="INFO">${gender_key} = Dim1</msg>
-<status status="PASS" starttime="20230613 20:01:45.622" endtime="20230613 20:01:45.631"/>
+<msg timestamp="20230915 12:42:36.460" level="INFO">${max_rate} = 5.0</msg>
+<status status="PASS" starttime="20230915 12:42:36.460" endtime="20230915 12:42:36.461"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${both_genders}</var>
 <arg>BTSX</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230613 20:01:45.637" level="INFO">${both_genders} = BTSX</msg>
-<status status="PASS" starttime="20230613 20:01:45.635" endtime="20230613 20:01:45.638"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${year_key}</var>
-<arg>TimeDim</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230613 20:01:45.647" level="INFO">${year_key} = TimeDim</msg>
-<status status="PASS" starttime="20230613 20:01:45.645" endtime="20230613 20:01:45.647"/>
+<msg timestamp="20230915 12:42:36.461" level="INFO">${both_genders} = BTSX</msg>
+<status status="PASS" starttime="20230915 12:42:36.461" endtime="20230915 12:42:36.461"/>
 </kw>
 <kw name="Filter Table By Column" library="RPA.Tables">
 <arg>${table}</arg>
@@ -122,8 +101,8 @@ a list, or a scalar value.</doc>
 <arg>${max_rate}</arg>
 <doc>Remove all rows where column values don't match the
 given condition.</doc>
-<msg timestamp="20230613 20:01:45.879" level="INFO">Filtered -10339 rows</msg>
-<status status="PASS" starttime="20230613 20:01:45.650" endtime="20230613 20:01:45.880"/>
+<msg timestamp="20230915 12:42:36.490" level="INFO">Filtered -10339 rows</msg>
+<status status="PASS" starttime="20230915 12:42:36.462" endtime="20230915 12:42:36.491"/>
 </kw>
 <kw name="Filter Table By Column" library="RPA.Tables">
 <arg>${table}</arg>
@@ -132,8 +111,8 @@ given condition.</doc>
 <arg>${both_genders}</arg>
 <doc>Remove all rows where column values don't match the
 given condition.</doc>
-<msg timestamp="20230613 20:01:45.914" level="INFO">Filtered -1056 rows</msg>
-<status status="PASS" starttime="20230613 20:01:45.881" endtime="20230613 20:01:45.914"/>
+<msg timestamp="20230915 12:42:36.495" level="INFO">Filtered -1056 rows</msg>
+<status status="PASS" starttime="20230915 12:42:36.491" endtime="20230915 12:42:36.495"/>
 </kw>
 <kw name="Filter Table By Column" library="RPA.Tables">
 <arg>${table}</arg>
@@ -142,21 +121,113 @@ given condition.</doc>
 <arg>False</arg>
 <doc>Remove all rows where column values don't match the
 given condition.</doc>
-<msg timestamp="20230613 20:01:45.927" level="INFO">Filtered -245 rows</msg>
-<status status="PASS" starttime="20230613 20:01:45.915" endtime="20230613 20:01:45.931"/>
+<msg timestamp="20230915 12:42:36.497" level="INFO">Filtered -245 rows</msg>
+<status status="PASS" starttime="20230915 12:42:36.495" endtime="20230915 12:42:36.497"/>
 </kw>
 <return>
 <value>${table}</value>
-<status status="PASS" starttime="20230613 20:01:45.931" endtime="20230613 20:01:45.932"/>
+<status status="PASS" starttime="20230915 12:42:36.497" endtime="20230915 12:42:36.497"/>
 </return>
-<msg timestamp="20230613 20:01:45.935" level="INFO">${filtered_data} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
-<status status="PASS" starttime="20230613 20:01:45.604" endtime="20230613 20:01:45.937"/>
+<msg timestamp="20230915 12:42:36.498" level="INFO">${filtered_data} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
+<status status="PASS" starttime="20230915 12:42:36.459" endtime="20230915 12:42:36.498"/>
 </kw>
-<status status="PASS" starttime="20230613 20:01:36.919" endtime="20230613 20:01:45.998"/>
+<kw name="Get latest data by country">
+<var>${filtered_data}</var>
+<arg>${filtered_data}</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${country_key}</var>
+<arg>SpatialDim</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230915 12:42:36.500" level="INFO">${country_key} = SpatialDim</msg>
+<status status="PASS" starttime="20230915 12:42:36.499" endtime="20230915 12:42:36.500"/>
+</kw>
+<kw name="Group Table By Column" library="RPA.Tables">
+<var>${table}</var>
+<arg>${table}</arg>
+<arg>${country_key}</arg>
+<doc>Group a table by ``column`` and return a list of grouped Tables.</doc>
+<msg timestamp="20230915 12:42:36.501" level="INFO">Found 0 groups</msg>
+<msg timestamp="20230915 12:42:36.502" level="INFO">${table} = []</msg>
+<status status="PASS" starttime="20230915 12:42:36.500" endtime="20230915 12:42:36.502"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${latest_data_by_country}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230915 12:42:36.503" level="INFO">${latest_data_by_country} = []</msg>
+<status status="PASS" starttime="20230915 12:42:36.502" endtime="20230915 12:42:36.503"/>
+</kw>
+<for flavor="IN">
+<var>${group}</var>
+<value>@{table}</value>
+<iter>
+<var name="${group}"/>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<status status="NOT RUN" starttime="20230915 12:42:36.504" endtime="20230915 12:42:36.505"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" starttime="20230915 12:42:36.505" endtime="20230915 12:42:36.505"/>
+</kw>
+<status status="NOT RUN" starttime="20230915 12:42:36.504" endtime="20230915 12:42:36.505"/>
+</iter>
+<status status="NOT RUN" starttime="20230915 12:42:36.503" endtime="20230915 12:42:36.506"/>
+</for>
+<return>
+<value>${latest_data_by_country}</value>
+<status status="PASS" starttime="20230915 12:42:36.506" endtime="20230915 12:42:36.506"/>
+</return>
+<msg timestamp="20230915 12:42:36.507" level="INFO">${filtered_data} = []</msg>
+<status status="PASS" starttime="20230915 12:42:36.499" endtime="20230915 12:42:36.507"/>
+</kw>
+<kw name="Create work item payloads">
+<var>${payloads}</var>
+<arg>${filtered_data}</arg>
+<kw name="Create List" library="BuiltIn">
+<var>${payloads}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230915 12:42:36.509" level="INFO">${payloads} = []</msg>
+<status status="PASS" starttime="20230915 12:42:36.508" endtime="20230915 12:42:36.509"/>
+</kw>
+<for flavor="IN">
+<var>${row}</var>
+<value>@{traffic_data}</value>
+<iter>
+<var name="${row}"/>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" starttime="20230915 12:42:36.510" endtime="20230915 12:42:36.510"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" starttime="20230915 12:42:36.510" endtime="20230915 12:42:36.510"/>
+</kw>
+<status status="NOT RUN" starttime="20230915 12:42:36.509" endtime="20230915 12:42:36.510"/>
+</iter>
+<status status="NOT RUN" starttime="20230915 12:42:36.509" endtime="20230915 12:42:36.510"/>
+</for>
+<return>
+<value>${payloads}</value>
+<status status="PASS" starttime="20230915 12:42:36.511" endtime="20230915 12:42:36.511"/>
+</return>
+<msg timestamp="20230915 12:42:36.511" level="INFO">${payloads} = []</msg>
+<status status="PASS" starttime="20230915 12:42:36.507" endtime="20230915 12:42:36.511"/>
+</kw>
+<status status="PASS" starttime="20230915 12:42:33.648" endtime="20230915 12:42:36.512"/>
 </test>
 <doc>Inhuman Insurance Robot Inc.
 Producer traffic data work item</doc>
-<status status="PASS" starttime="20230613 20:01:32.764" endtime="20230613 20:01:46.035"/>
+<status status="PASS" starttime="20230915 12:42:29.640" endtime="20230915 12:42:36.513"/>
 </suite>
 <statistics>
 <total>
@@ -169,6 +240,6 @@ Producer traffic data work item</doc>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20230613 20:01:36.917" level="WARN">No input work items file found: None</msg>
+<msg timestamp="20230915 12:42:33.648" level="WARN">No input work items file found: None</msg>
 </errors>
 </robot>

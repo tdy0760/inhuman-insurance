@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on darwin)" generated="20230915 12:45:44.525" rpa="false" schemaversion="3">
+<suite id="s1" name="Robot Interactive Console" source="/Users/tomekdyl/.vscode/extensions/robocorp.robotframework-lsp-1.11.0/src/robotframework_ls/vendored/robotframework_interactive/robot_interactive_console.robot">
+<test id="s1-t1" name="Default Task/Test" line="5">
+<kw name="Interpreter Main Loop" library="MainLoop">
+<kw name="Download traffic data">
+<kw name="Download">
+<arg>https://github.com/robocorp/inhuman-insurance-inc/raw/main/RS_198.json</arg>
+<arg>${TRAFFIC_FILE_PATH}</arg>
+<arg>overwrite=True</arg>
+<msg timestamp="20230915 12:46:21.844" level="FAIL">No keyword with name 'Download' found.</msg>
+<status status="FAIL" starttime="20230915 12:46:21.844" endtime="20230915 12:46:21.844"/>
+</kw>
+<status status="FAIL" starttime="20230915 12:46:21.841" endtime="20230915 12:46:21.845"/>
+</kw>
+<kw name="Write data to csv">
+<status status="NOT RUN" starttime="20230915 12:46:21.845" endtime="20230915 12:46:21.845"/>
+</kw>
+<kw name="Load data to table">
+<var>${table}</var>
+<status status="NOT RUN" starttime="20230915 12:46:21.847" endtime="20230915 12:46:21.847"/>
+</kw>
+<kw name="Filter and sort traffic data">
+<var>${filtered_data}</var>
+<arg>${table}</arg>
+<status status="NOT RUN" starttime="20230915 12:46:21.847" endtime="20230915 12:46:21.847"/>
+</kw>
+<kw name="Get latest data by country">
+<var>${filtered_data}</var>
+<arg>${filtered_data}</arg>
+<status status="NOT RUN" starttime="20230915 12:46:21.847" endtime="20230915 12:46:21.847"/>
+</kw>
+<kw name="Create work item payloads">
+<var>${payloads}</var>
+<arg>${filtered_data}</arg>
+<status status="NOT RUN" starttime="20230915 12:46:21.847" endtime="20230915 12:46:21.847"/>
+</kw>
+<kw name="Download traffic data">
+<kw name="Download" library="RPA.HTTP">
+<arg>https://github.com/robocorp/inhuman-insurance-inc/raw/main/RS_198.json</arg>
+<arg>${TRAFFIC_FILE_PATH}</arg>
+<arg>overwrite=True</arg>
+<doc>An alias for the ``HTTP Get`` keyword.</doc>
+<status status="PASS" starttime="20230915 12:46:48.303" endtime="20230915 12:46:49.166"/>
+</kw>
+<status status="PASS" starttime="20230915 12:46:48.302" endtime="20230915 12:46:49.166"/>
+</kw>
+<kw name="Write data to csv">
+<kw name="Load data to table">
+<var>${table}</var>
+<msg timestamp="20230915 12:46:49.171" level="FAIL">No keyword with name 'Load data to table' found.</msg>
+<status status="FAIL" starttime="20230915 12:46:49.170" endtime="20230915 12:46:49.171"/>
+</kw>
+<kw name="Write table to CSV" library="RPA.Tables">
+<arg>${table}</arg>
+<arg>${TRAFFIC_FILE_PATH_CSV}</arg>
+<doc>Write a table as a CSV file.</doc>
+<status status="NOT RUN" starttime="20230915 12:46:49.171" endtime="20230915 12:46:49.171"/>
+</kw>
+<status status="FAIL" starttime="20230915 12:46:49.166" endtime="20230915 12:46:49.172"/>
+</kw>
+<kw name="Load data to table">
+<var>${table}</var>
+<status status="NOT RUN" starttime="20230915 12:46:49.176" endtime="20230915 12:46:49.176"/>
+</kw>
+<kw name="Filter and sort traffic data">
+<var>${filtered_data}</var>
+<arg>${table}</arg>
+<status status="NOT RUN" starttime="20230915 12:46:49.176" endtime="20230915 12:46:49.176"/>
+</kw>
+<kw name="Get latest data by country">
+<var>${filtered_data}</var>
+<arg>${filtered_data}</arg>
+<status status="NOT RUN" starttime="20230915 12:46:49.176" endtime="20230915 12:46:49.176"/>
+</kw>
+<kw name="Create work item payloads">
+<var>${payloads}</var>
+<arg>${filtered_data}</arg>
+<status status="NOT RUN" starttime="20230915 12:46:49.176" endtime="20230915 12:46:49.176"/>
+</kw>
+<kw name="Download traffic data">
+<kw name="Download" library="RPA.HTTP">
+<arg>https://github.com/robocorp/inhuman-insurance-inc/raw/main/RS_198.json</arg>
+<arg>${TRAFFIC_FILE_PATH}</arg>
+<arg>overwrite=True</arg>
+<doc>An alias for the ``HTTP Get`` keyword.</doc>
+<status status="PASS" starttime="20230915 12:47:05.130" endtime="20230915 12:47:05.334"/>
+</kw>
+<status status="PASS" starttime="20230915 12:47:05.129" endtime="20230915 12:47:05.335"/>
+</kw>
+<kw name="Write data to csv">
+<kw name="Load data to table">
+<var>${table}</var>
+<kw name="Load JSON from file" library="RPA.JSON">
+<var>${json}</var>
+<arg>${TRAFFIC_FILE_PATH}</arg>
+<doc>Load JSON data from a file, and return it as JSON serializable object.
+Depending on the input file the object can be either a dictionary,
+a list, or a scalar value.</doc>
+<msg timestamp="20230915 12:47:05.492" level="INFO">${json} = {'@odata.context': 'https://ghoapi.azureedge.net/api/$metadata#RS_198', 'value': [{'Id': 25257658, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'AFG', 'TimeDimType': 'YEAR', '...</msg>
+<status status="PASS" starttime="20230915 12:47:05.336" endtime="20230915 12:47:05.492"/>
+</kw>
+<kw name="Create Table" library="RPA.Tables">
+<var>${table}</var>
+<arg>${json}[value]</arg>
+<doc>Create Table object from data.</doc>
+<msg timestamp="20230915 12:47:05.686" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
+<status status="PASS" starttime="20230915 12:47:05.492" endtime="20230915 12:47:05.686"/>
+</kw>
+<return>
+<value>${table}</value>
+<status status="PASS" starttime="20230915 12:47:05.686" endtime="20230915 12:47:05.686"/>
+</return>
+<msg timestamp="20230915 12:47:05.687" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
+<status status="PASS" starttime="20230915 12:47:05.335" endtime="20230915 12:47:05.687"/>
+</kw>
+<kw name="Write table to CSV" library="RPA.Tables">
+<arg>${table}</arg>
+<arg>${TRAFFIC_FILE_PATH_CSV}</arg>
+<doc>Write a table as a CSV file.</doc>
+<status status="PASS" starttime="20230915 12:47:05.687" endtime="20230915 12:47:06.091"/>
+</kw>
+<status status="PASS" starttime="20230915 12:47:05.335" endtime="20230915 12:47:06.091"/>
+</kw>
+<kw name="Load data to table">
+<var>${table}</var>
+<kw name="Load JSON from file" library="RPA.JSON">
+<var>${json}</var>
+<arg>${TRAFFIC_FILE_PATH}</arg>
+<doc>Load JSON data from a file, and return it as JSON serializable object.
+Depending on the input file the object can be either a dictionary,
+a list, or a scalar value.</doc>
+<msg timestamp="20230915 12:47:06.247" level="INFO">${json} = {'@odata.context': 'https://ghoapi.azureedge.net/api/$metadata#RS_198', 'value': [{'Id': 25257658, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'AFG', 'TimeDimType': 'YEAR', '...</msg>
+<status status="PASS" starttime="20230915 12:47:06.091" endtime="20230915 12:47:06.247"/>
+</kw>
+<kw name="Create Table" library="RPA.Tables">
+<var>${table}</var>
+<arg>${json}[value]</arg>
+<doc>Create Table object from data.</doc>
+<msg timestamp="20230915 12:47:06.439" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
+<status status="PASS" starttime="20230915 12:47:06.247" endtime="20230915 12:47:06.439"/>
+</kw>
+<return>
+<value>${table}</value>
+<status status="PASS" starttime="20230915 12:47:06.439" endtime="20230915 12:47:06.439"/>
+</return>
+<msg timestamp="20230915 12:47:06.439" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
+<status status="PASS" starttime="20230915 12:47:06.091" endtime="20230915 12:47:06.439"/>
+</kw>
+<kw name="Filter and sort traffic data">
+<var>${filtered_data}</var>
+<arg>${table}</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${max_rate}</var>
+<arg>${5.0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230915 12:47:06.440" level="INFO">${max_rate} = 5.0</msg>
