@@ -37,7 +37,7 @@ Handle traffic API response
 Handle traffic API OK response
     Release Input Work Item    DONE
 
-andle traffic API error response
+Handle traffic API error response
     [Arguments]    ${return}    ${traffic_data}
     Log
     ...    Traffic data posting failed: ${traffic_data} ${return}
@@ -47,3 +47,13 @@ andle traffic API error response
     ...    exception_type=APPLICATION
     ...    code=TRAFFIC_DATA_POST_FAILED
     ...    message=${return}
+
+Handle invalid traffic data
+    [Arguments]    ${traffic_data}
+    ${message}=    Set Variable    Invalid traffic data: ${traffic_data}
+    Log    ${message}    WARN
+    Release Input Work Item
+    ...    state=FAILED
+    ...    exception_type=BUSINESS
+    ...    code=INVALID_TRAFFIC_DATA
+    ...    message=${message}
