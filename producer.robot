@@ -2,7 +2,7 @@
 Documentation       Inhuman Insurance Robot Inc.
 ...                 Producer traffic data work item
 
-Library             RPA.HTTP
+
 Library             RPA.Desktop
 # Library    RPA.JSON
 Library             RPA.Tables

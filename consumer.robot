@@ -3,7 +3,6 @@ Documentation       Inhuman Insurance, Inc. Artificial Intelligence System robot
 ...                 Consumes traffic data work items.
 
 # Library    # RPA.Robocorp.WorkItems
-Library             RPA.HTTP
 Resource            shared.robot
 
 
